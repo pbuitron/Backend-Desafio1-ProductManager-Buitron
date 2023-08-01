@@ -39,10 +39,7 @@ class ProductManager {
     return products.find((product) => product.id === idProducto) || 'Not Found';
   }
 
-
-
 }
-
 
 // Crear una instancia de ProductManager
 const productManager = new ProductManager();
