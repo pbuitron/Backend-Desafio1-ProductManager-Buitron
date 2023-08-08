@@ -13,8 +13,8 @@
       try {
         this.products = JSON.parse(productos);
       } catch (error) {
-        console.log('Error parsing JSON:', error.message);
-        this.products = [];
+        console.log('Error to parse JSON: There´s not array,  creating array now -', error.message);
+        this.products = this.saveProductsToFile([]);
       }
     } else {
       this.saveProductsToFile([]);
@@ -136,7 +136,7 @@
     }
   }
   
-  const productManager1 = new ProductManager("./Products.json");
+  const productManager1 = new ProductManager("./productos.json");
   
   const producto1 = {
     title: "producto Añadido",
@@ -158,7 +158,7 @@
     const productById = productManager1.getProductById(1);
     console.log("PRODUCT BY ID (1):", productById);
   
-    await productManager1.updateProduct(3, {
+    await productManager1.updateProduct(2, {
       title: "producto actualizado",
       description: "descripcion actualizada",
       price: 1,
@@ -168,7 +168,7 @@
     const consultaProductos3 = productManager1.getProducts();
     console.log("After update", consultaProductos3);
   
-    await productManager1.deleteProduct(2);
+    await productManager1.deleteProduct(3);
     const consultaProductos4 = productManager1.getProducts();
     console.log("After delete", consultaProductos4);
   }
