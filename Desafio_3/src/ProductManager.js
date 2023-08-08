@@ -16,12 +16,12 @@
     }
   }
 
-  getProductById(productId) {
+   getProductById(productId) {
     const productosFile = this.getProducts();
     const product = productosFile.find((product) => product.id === productId);
 
     if (product) {
-      return product;
+      return  product;
     } else {
       console.log("Product not found!");
       return {};
